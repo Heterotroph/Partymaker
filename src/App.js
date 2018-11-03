@@ -26,11 +26,12 @@ export default class App extends React.Component {
           <ComplexHeader openDrawer={() => this.drawer._root.open()} />
           <Mapbox.MapView
             styleURL={Mapbox.StyleURL.Dark}
-            zoomLevel={15}
+            zoomLevel={12}
             logoEnabled={false}
             compassEnabled={false}
             showUserLocation={true}
-            centerCoordinate={[11.256, 43.770]}
+            attributionEnabled={false}
+            centerCoordinate={[30.335, 59.934]}
             style={{ position: 'absolute', width: width, height: height, zIndex: -1, }}>
           </Mapbox.MapView>
           <Content style={{ zIndex: -2, }}/>
