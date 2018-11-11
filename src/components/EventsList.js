@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
+import { List, ListItem, Left, Body, Right, Thumbnail, Text } from 'native-base';
 
 export default class EventsList extends React.Component {
   render() {

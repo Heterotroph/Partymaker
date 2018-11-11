@@ -1,19 +1,11 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
-
 const thumbnailSize = 100;
 
 export default StyleSheet.create({
   container: {
     backgroundColor: '#262626'
-  },
-  drawer: {
-  },
-  map: {
-    flex: 1,
-    width: width,
-    height: height
   },
   text: {
     color: '#000'

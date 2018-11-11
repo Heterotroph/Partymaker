@@ -1,24 +1,25 @@
 import React from 'react';
-import { Text } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import styles from '../styles';
+import { Container } from 'native-base';
+import Mapbox from '@mapbox/react-native-mapbox-gl';
+
+Mapbox.setAccessToken('pk.eyJ1IjoiaGV0ZXJvdHJvcGgiLCJhIjoiY2puejVmYnA5MHZ6bzNxbDZrNWFvaHBrZyJ9.6Az6HZpsKdgtAaTvZnEhxA');
 
 export default class EventsMap extends React.Component {
   render() {
     return (
-      <MapView
-        style={styles.map}
-        showsUserLocation={true}
-        followsUserLocation={true}
-        showsMyLocationButton={true}
-        provider={PROVIDER_GOOGLE}
-        region={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.015,
-          longitudeDelta: 0.0121,
-        }}>
-      </MapView>
+      <Container style={{ flex: 1, marginTop: -56, zIndex: -1 }}>
+        <Mapbox.MapView
+          ref={(ref) => { this.mapbox = ref; }}
+          styleURL={Mapbox.StyleURL.Dark}
+          zoomLevel={12}
+          logoEnabled={false}
+          compassEnabled={false}
+          showUserLocation={true}
+          attributionEnabled={false}
+          centerCoordinate={[30.335, 59.934]}
+          style={{ flex: 1 }}>
+        </Mapbox.MapView>
+      </Container>
     )
   }
 }

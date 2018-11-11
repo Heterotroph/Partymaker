@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Container, Title, Content, Subtitle, Icon, List, Button, Thumbnail, Text, Body, Left } from 'native-base';
+import { Container, Content, Icon, Button, Thumbnail, Text, Body } from 'native-base';
 import styles from '../styles';
 
 export default class SideBar extends React.Component {
