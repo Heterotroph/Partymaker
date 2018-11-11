@@ -1,11 +1,9 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { Container, Drawer } from 'native-base';
-import ComplexHeader from './components/ComplexHeader';
-import ComplexFooter from './components/ComplexFooter';
-import EventsMap from './components/EventsMap';
+import Navigator from './Navigator';
 import SideBar from './components/SideBar';
-import styles from './styles';
+import styles from '~/src/styles';
 
 export default class App extends React.Component {
 
@@ -23,14 +21,7 @@ export default class App extends React.Component {
           type="displace"
           content={<SideBar />}
           onClose={() => this.drawer._root.close()} >
-          <Container>
-            <ComplexHeader
-              openDrawer={() => this.drawer._root.open()}
-              style={{ backgroundColor: 'transparent', zIndex: 10000, elevation: 0 }}
-            />
-            <EventsMap />
-            <ComplexFooter />
-          </Container>
+          <Navigator ref={(ref) => { this.navigator = ref; }} />
         </Drawer>
       </Container>
     )
