@@ -1,37 +1,29 @@
 import React from 'react';
-import { Container, Text } from 'native-base';
-import { createSwitchNavigator } from 'react-navigation';
+import { Container } from 'native-base';
+import { createDrawerNavigator, DrawerActions } from 'react-navigation';
 import ComplexHeader from './components/ComplexHeader';
 import ComplexFooter from './components/ComplexFooter';
 import EventsMap from './components/EventsMap';
-
-const footerContent = [
-  {
-    icon: 'MaterialCommunityIcons:view-dashboard',
-    key: 'list'
-  },
-  {
-    icon: 'MaterialCommunityIcons:map',
-    key: 'map'
-  },
-  {
-    icon: 'MaterialCommunityIcons:plus-box-outline',
-    key: 'new'
-  }
-]
+import EventsList from './components/EventsList';
+import DrawerContent from './components/DrawerContent';
+import buttons from './buttons';
 
 class MapScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
       <Container>
-        <Text>Мама Ама Криминал</Text>
         <ComplexHeader
-          openDrawer={() => this.drawer._root.open()}
-          style={{ backgroundColor: 'transparent', zIndex: 10000, elevation: 0 }}
+          transparent
+          navigation={navigation}
+          style={{ zIndex: 10000, elevation: 0 }}
+          left={buttons.header.left}
+          right={buttons.header.right}
+          onLeftPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+          onRightPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
         <EventsMap />
-        <ComplexFooter navigation={navigation}/>
+        <ComplexFooter navigation={navigation} buttons={buttons.footer} map />
       </Container>
     );
   }
@@ -42,22 +34,27 @@ class ListScreen extends React.Component {
     const { navigation } = this.props;
     return (
       <Container>
-        <Text>Хуй Пизда Джагурда</Text>
         <ComplexHeader
-          openDrawer={() => this.drawer._root.open()}
-          style={{ backgroundColor: 'transparent', zIndex: 10000, elevation: 0 }}
+          navigation={navigation}
+          left={buttons.header.left}
+          right={buttons.header.right}
+          onLeftPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+          onRightPress={() => navigation.dispatch(DrawerActions.openDrawer())}
         />
-        <EventsMap />
-        <ComplexFooter navigation={navigation}/>
+        <EventsList />
+        <ComplexFooter navigation={navigation} buttons={buttons.footer} list />
       </Container>
     );
   }
 }
 
-const Stack = createSwitchNavigator({
+const Stack = createDrawerNavigator({
   map: MapScreen,
   list: ListScreen
-}, { initialRouteName: 'map' });
+}, {
+  initialRouteName: 'map',
+  contentComponent: DrawerContent
+});
 
 export default class Navigator extends React.Component {
   render() {

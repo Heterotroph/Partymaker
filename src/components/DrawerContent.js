@@ -3,13 +3,13 @@ import { View } from 'react-native';
 import { Container, Content, Icon, Button, Thumbnail, Text, Body } from 'native-base';
 import styles from '~/src/styles';
 
-export default class SideBar extends React.Component {
+export default class DrawerContent extends React.Component {
   render() {
     return (
       <Container style={{ backgroundColor: '#262626' }}>
         <Content>
-          <View style={styles.sidebarCard}>
-            <Thumbnail style={styles.thumbnail} source={{ uri: 'https://d38we5ntdyxyje.cloudfront.net/1103491/profile/LCNVLUBL_avatar_medium_square.jpg' }} />
+          <View style={styles.sidebarUserCard}>
+            <Thumbnail style={styles.sidebarThumbnail} source={{ uri: 'https://d38we5ntdyxyje.cloudfront.net/1103491/profile/LCNVLUBL_avatar_medium_square.jpg' }} />
             <Body style={{ paddingTop: 17 }}>
               <Text style={{ color: '#262626', fontSize: 16 }}>Ruslan Akhtyamov</Text>
               <Text style={{ color: '#262626', fontSize: 12 }}>рейтинг 53</Text>

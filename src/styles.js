@@ -1,29 +1,21 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
-const thumbnailSize = 100;
-
-export default StyleSheet.create({
-  container: {
-    backgroundColor: '#262626'
-  },
-  text: {
-    color: '#000'
-  },
-  thumbnail: {
-    width: thumbnailSize,
-    height: thumbnailSize,
-    borderRadius: thumbnailSize/2,
-    borderColor: 'transparent',
-    borderWidth: 2
-  },
-  sidebarCard: {
+const sidebarThumbnailSize = 100;
+const sidebar = {
+  sidebarUserCard: {
     backgroundColor: '#ffffff',
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     padding: 17,
     paddingBottom: 17
+  },
+  sidebarThumbnail: {
+    width: sidebarThumbnailSize,
+    height: sidebarThumbnailSize,
+    borderRadius: sidebarThumbnailSize / 2,
+    borderColor: 'transparent',
+    borderWidth: 2
   },
   awardsList: {
     paddingTop: 7,
@@ -36,4 +28,29 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start'
   }
+}
+
+const colors = {
+  greyA: {color: '#191919'},
+  greyB: {color: '#222222'},
+  greyC: {color: '#262626'},
+  greyD: {color: '#a8a8a8'}
+}
+
+const backgrounds = {
+  bTransparent: {backgroundColor: 'transparent'},
+  bWhite: {backgroundColor: '#fff'},
+  bGreyA: {backgroundColor: '#191919'},
+  bGreyB: {backgroundColor: '#222222'},
+  bGreyC: {backgroundColor: '#262626'},
+  bGreyD: {backgroundColor: '#a8a8a8'}
+}
+
+export default StyleSheet.create({
+  ...sidebar,
+  ...colors,
+  ...backgrounds,
+  container: {
+    backgroundColor: '#262626'
+  },
 });

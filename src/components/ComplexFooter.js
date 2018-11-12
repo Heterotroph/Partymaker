@@ -1,31 +1,39 @@
 import React, { Component } from 'react';
-import { Footer, FooterTab, Button, Icon } from 'native-base';
+import { Footer, FooterTab, Button, Icon, Text } from 'native-base';
+import styles from '~/src/styles';
 
 export default class ComplexFooter extends Component {
   render() {
     const icons = "MaterialCommunityIcons";
-    const { navigation } = this.props.navigation
+    const buttons = [];
+    const { navigation } = this.props;
+
+    this.props.buttons.map((item) => {
+      const isSelected = Boolean(this.props[item.key]);
+      const color = isSelected ? styles.greyA : styles.greyD;
+      const [namespace, icon] = item.icon.split(":");
+      buttons.push(
+        <Button
+          key={item.key}
+          active={isSelected}
+          onPress={() => navigation.navigate(item.key)}
+          style={styles.bTransparent}>
+          <Icon
+            type={namespace}
+            name={icon}
+            style={color}
+          />
+          <Text style={color}>
+            {item.title}
+          </Text>
+        </Button>
+      );
+    })
     return (
       <Footer>
-        <FooterTab style={{ backgroundColor: '#fff' }}>
-          <Button
-            key='list'
-            onPress={() => this.props.navigation.navigate('list')}>
-            <Icon type={icons} style={{ color: '#a8a8a8' }} name="view-dashboard" />
-          </Button>
-          <Button
-            active
-            key='map'
-            style={{ backgroundColor: 'transparent' }}
-            onPress={() => this.props.navigation.navigate('map')}>
-            <Icon type={icons} style={{ color: '#262626' }} name="map" />
-          </Button>
-          <Button
-            key='new'
-            onPress={() => this.props.navigation.navigate('map')}>
-            <Icon type={icons} style={{ color: '#a8a8a8' }} name="plus-box-outline" />
-            {/*map-marker-plus, plus-box-outline, plus-outline, plus-circle, plus-box, plus-outline */}
-          </Button>
+        <FooterTab
+          style={styles.bWhite}>
+          {buttons}
         </FooterTab>
       </Footer>
     );

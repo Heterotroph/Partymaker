@@ -1,21 +1,24 @@
 import React from 'react';
 import { Header, Left, Button, Icon, Right, Body } from 'native-base';
+import styles from '~/src/styles';
 
 export default class ComplexHeader extends React.Component {
   render() {
-    const icons = "MaterialCommunityIcons";
+    const [namespaceLeft, iconLeft] = this.props.left.icon.split(":");
+    const [namespaceRight, iconRight] = this.props.right.icon.split(":");
+    const color = this.props.transparent ? styles.bTransparent : styles.bGreyC;
     return (
-      <Header noShadow style={{ backgroundColor: 'transparent' }}>
+      <Header noShadow style={color}>
         <Left>
-          <Button transparent onPress={() => this.props.openDrawer()} >
-            <Icon type={icons} name='menu' />
+          <Button transparent onPress={() => this.props.onLeftPress()}>
+            <Icon type={namespaceLeft} name={iconLeft} />
           </Button>
         </Left>
         <Body>
         </Body>
         <Right>
-          <Button transparent >
-            <Icon type={icons} name="filter-outline" />
+          <Button transparent onPress={() => this.props.onRightPress()}>
+            <Icon type={namespaceRight} name={iconRight} />
           </Button>
         </Right>
       </Header>
