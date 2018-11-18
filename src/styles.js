@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Mapbox from '@mapbox/react-native-mapbox-gl';
 
 const sidebarThumbnailSize = 100;
 const sidebar = {
@@ -30,11 +31,10 @@ const sidebar = {
   }
 }
 
-const colors = {
-  greyA: {color: '#191919'},
-  greyB: {color: '#222222'},
-  greyC: {color: '#262626'},
-  greyD: {color: '#a8a8a8'}
+const eventPreview = {
+  eventPreview: {
+    flex: 0.3
+  }
 }
 
 const backgrounds = {
@@ -46,11 +46,39 @@ const backgrounds = {
   bGreyD: {backgroundColor: '#a8a8a8'}
 }
 
-export default StyleSheet.create({
+const colors = {
+  greyA: {color: '#191919'},
+  greyB: {color: '#222222'},
+  greyC: {color: '#262626'},
+  greyD: {color: '#a8a8a8'}
+}
+
+export const styles = StyleSheet.create({
   ...sidebar,
+  ...eventPreview,
   ...colors,
   ...backgrounds,
   container: {
     backgroundColor: '#262626'
+  },
+});
+
+export const mapStyles = Mapbox.StyleSheet.create({
+  events: {
+    fillExtrusionOpacity: 0.8,
+    fillExtrusionColor: Mapbox.StyleSheet.source([
+      //Вечеринки
+      [1000, '#ff9900'],
+      [1001, '#ff6600'],
+      [1002, '#ff3300'],
+      //Активный отдых
+      [2000, '#99cc99'],
+      [2001, '#99ff66'],
+      //Клубы по интересам
+      [3000, '#00ffff'],
+      [3001, '#33ccff']
+    ], 'category', Mapbox.InterpolationMode.Categorical),
+    fillExtrusionHeight: Mapbox.StyleSheet.identity('height'),
+    fillExtrusionBase: Mapbox.StyleSheet.identity('base_height')
   },
 });

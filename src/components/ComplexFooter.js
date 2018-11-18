@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Footer, FooterTab, Button, Icon, Text } from 'native-base';
-import styles from '~/src/styles';
+import { styles } from '~/src/styles';
 
 export default class ComplexFooter extends Component {
   render() {

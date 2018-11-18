@@ -1,14 +1,10 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
 import { Container } from 'native-base';
-import Navigator from './Navigator';
-import styles from '~/src/styles';
+import Navigator from './screens/Navigator';
+import { styles } from '~/src/styles';
 
 export default class App extends React.Component {
-
-  state = {
-
-  }
 
   render() {
     return (

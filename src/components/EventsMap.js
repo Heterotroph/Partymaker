@@ -1,30 +1,23 @@
 import React from 'react';
-import { Container } from 'native-base';
+import { Container, Item } from 'native-base';
 import Mapbox from '@mapbox/react-native-mapbox-gl';
-import eventsdata from '~/data/events_example.json';
+import { mapStyles } from '~/src/styles';
 
 Mapbox.setAccessToken('pk.eyJ1IjoiaGV0ZXJvdHJvcGgiLCJhIjoiY2puejVmYnA5MHZ6bzNxbDZrNWFvaHBrZyJ9.6Az6HZpsKdgtAaTvZnEhxA');
-const layerStyles = Mapbox.StyleSheet.create({
-  events: {
-    fillExtrusionOpacity: 0.8,
-    fillExtrusionColor: Mapbox.StyleSheet.source([
-      //Вечеринки
-      [1000, '#ff9900'],
-      [1001, '#ff6600'],
-      [1002, '#ff3300'],
-      //Активный отдых
-      [2000, '#99cc99'],
-      [2001, '#99ff66'],
-      //Клубы по интересам
-      [3000, '#00ffff'],
-      [3001, '#33ccff']
-    ], 'category', Mapbox.InterpolationMode.Categorical),
-    fillExtrusionHeight: Mapbox.StyleSheet.identity('height'),
-    fillExtrusionBase: Mapbox.StyleSheet.identity('base_height')
-  },
-});
+
 
 export default class EventsMap extends React.Component {
+
+  state = {
+    coords: null,
+    events: null,
+  }
+
+  constructor(props) {
+    super(props);
+    this.state.coords = props.coords;
+    this.state.events = props.events;
+  }
 
   geojson(events) {
     return {
@@ -34,20 +27,21 @@ export default class EventsMap extends React.Component {
           type: "Feature",
           properties: {
             id: event.id,
+            coords: event.coords,
             category: event.category,
             height: Math.log(event.capacity) * 100,
             base_height: 0
           },
           geometry: {
             type: "Polygon",
-            coordinates: [this.draw(event.coords, 6, 0.0005)]
+            coordinates: [this.draw(event.coords, 6, 0.001)]
           }
         }
       })
     }
   }
 
-  draw({ long, lat }, c, r) {
+  draw({ long, lat}, c, r) {
     const result = [];
     const angle = 360 / c;
     for (i = 0; i < c; i++) {
@@ -61,12 +55,16 @@ export default class EventsMap extends React.Component {
   }
 
   onSourceLayerPress(e) {
-    const feature = e.nativeEvent.payload;
-    console.warn("EventsMap#onSourceLayerPress");
+    const event = e.nativeEvent.payload;
+    this.props.onEventChange(event.properties.id);
+    const { long, lat } = event.properties.coords;
+    
+    this.mapbox.moveTo([long, lat], 3000);
   }
 
   onPress(e) {
-    console.warn("EventsMap#onPress");
+    this.setState({ event: null })
+    this.props.onEventChange(null);
   }
 
   render() {  
@@ -75,25 +73,25 @@ export default class EventsMap extends React.Component {
         <Mapbox.MapView
           ref={(ref) => { this.mapbox = ref; }}
           styleURL={Mapbox.StyleURL.Dark}
-          pitch={40}
-          zoomLevel={12}
+          pitch={30}
+          zoomLevel={11}
           minZoomLevel={8}
-          maxZoomLevel={16}
+          maxZoomLevel={15}
           logoEnabled={false}
           compassEnabled={false}
           showUserLocation={true}
           attributionEnabled={false}
-          centerCoordinate={[30.335, 59.934]}
+          centerCoordinate={this.state.coords}
           style={{ flex: 1 }}
           onPress={this.onPress.bind(this)}>
           <Mapbox.ShapeSource
             id="indoorBuildingSource"
-            shape={this.geojson(eventsdata)}
-            hitbox={{ width: 20, height: 20 }}
+            shape={this.geojson(this.state.events)}
+            hitbox={{ width: 100, height: 100 }}
             onPress={this.onSourceLayerPress.bind(this)}>
             <Mapbox.FillExtrusionLayer
               id="building3d"
-              style={layerStyles.events}
+              style={mapStyles.events}
             />
           </Mapbox.ShapeSource>
         </Mapbox.MapView>

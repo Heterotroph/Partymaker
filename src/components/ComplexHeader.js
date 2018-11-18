@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Left, Button, Icon, Right, Body } from 'native-base';
-import styles from '~/src/styles';
+import { styles } from '~/src/styles';
 
 export default class ComplexHeader extends React.Component {
   render() {

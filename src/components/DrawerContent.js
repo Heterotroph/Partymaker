@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { Container, Content, Icon, Button, Thumbnail, Text, Body } from 'native-base';
-import styles from '~/src/styles';
+import { styles } from '~/src/styles';
 
 export default class DrawerContent extends React.Component {
   render() {
