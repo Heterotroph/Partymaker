@@ -1,0 +1,186 @@
+[
+  {
+    "id": "000000000001",
+    "name": "УБЕР ПАТИ",
+    "description": "16+ ВСЕ СЮДА! Азазазазазаззазаза",
+    "creator": 123321,
+    "duration": 180,
+    "beginning": 1542011397,
+    "category": 1000,
+    "capacity": 7,
+    "facecontrol": {
+      "raiting": 1,
+      "age": 16,
+      "gender": null
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 59.99032019,
+      "long": 30.35315776
+    }
+  },
+  {
+    "id": "000000000002",
+    "name": "Вечеринка 40+",
+    "description": "DISCO 80х. Lorem Ipsum Dolor Sit Amen",
+    "creator": 123321,
+    "duration": 180,
+    "beginning": 1542011397,
+    "category": 1002,
+    "capacity": 50,
+    "facecontrol": {
+      "raiting": 2,
+      "age": 40,
+      "gender": null
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 59.96249122,
+      "long": 30.36071086
+    }
+  },
+  {
+    "id": "000000000003",
+    "name": "Новый год!",
+    "description": "Салюты, Шампанское, Настольные игры! Приходите. Вход - 1 литр выпивки.",
+    "creator": 123321,
+    "duration": 1080,
+    "beginning": 1542011397,
+    "category": 1001,
+    "capacity": 15,
+    "facecontrol": {
+      "raiting": 1,
+      "age": 20,
+      "gender": null
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 59.91123854,
+      "long": 30.47606731
+    }
+  },
+  {
+    "id": "000000000004",
+    "name": "Мужская туса",
+    "description": "",
+    "creator": 123321,
+    "duration": 360,
+    "beginning": 1542011397,
+    "category": 1002,
+    "capacity": 10,
+    "facecontrol": {
+      "raiting": 1,
+      "age": 18,
+      "gender": "male"
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 59.99032019,
+      "long": 30.20758891
+    }
+  },
+  {
+    "id": "000000000005",
+    "name": "Девишник",
+    "description": "Равным образом дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание существенных финансовых и административных условий.",
+    "creator": 123321,
+    "duration": 360,
+    "beginning": 1542011397,
+    "category": 1002,
+    "capacity": 10,
+    "facecontrol": {
+      "raiting": 1,
+      "age": 18,
+      "gender": "female"
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 59.92397311,
+      "long": 30.34972453
+    }
+  },
+  {
+    "id": "000000000006",
+    "name": "Поход в лес",
+    "description": "Путешествие по природе",
+    "creator": 123321,
+    "duration": 2880,
+    "beginning": 1542011397,
+    "category": 2000,
+    "capacity": 10,
+    "facecontrol": {
+      "raiting": 1,
+      "age": 16,
+      "gender": null
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 60.03424918,
+      "long": 30.63674235
+    }
+  },
+  {
+    "id": "000000000006",
+    "name": "Экстрим путешествие",
+    "description": "Путешествие по природе!!!!!!! ЭКСТРИМ",
+    "creator": 123321,
+    "duration": 2880,
+    "beginning": 1542011397,
+    "category": 2001,
+    "capacity": 20,
+    "facecontrol": {
+      "raiting": 1,
+      "age": 20,
+      "gender": null
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 60.05424918,
+      "long": 30.65674235
+    }
+  },
+  {
+    "id": "000000000007",
+    "name": "Вечеринка с DJ и 100 литрами пива",
+    "description": "Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности играет важную роль в формировании соответствующий условий активизации.",
+    "creator": 123321,
+    "duration": 180,
+    "beginning": 1542011397,
+    "category": 1002,
+    "capacity": 100,
+    "facecontrol": {
+      "raiting": 1,
+      "age": 16,
+      "gender": null
+    },
+    "media": {
+      "movies": [],
+      "images": []
+    },
+    "coords": {
+      "lat": 59.95905392,
+      "long": 30.32157207
+    }
+  }
+]

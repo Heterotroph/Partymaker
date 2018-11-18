@@ -7,12 +7,13 @@ import EventsMap from './components/EventsMap';
 import EventsList from './components/EventsList';
 import DrawerContent from './components/DrawerContent';
 import buttons from './buttons';
+import styles from './styles';
 
 class MapScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <Container>
+      <Container style={styles.bWhite}>
         <ComplexHeader
           transparent
           navigation={navigation}
@@ -33,7 +34,7 @@ class ListScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     return (
-      <Container>
+      <Container style={styles.bGreyC}>
         <ComplexHeader
           navigation={navigation}
           left={buttons.header.left}
